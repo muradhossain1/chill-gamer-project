@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Header from "../Components/Header";
+import Footer from "../Components/Footer";
 
 
 const MainLayout = () => {
@@ -8,10 +9,10 @@ const MainLayout = () => {
             <header>
                 <Header></Header>
             </header>
-            <main>
+            <main className="min-h-screen">
                 <Outlet></Outlet>
             </main>
-            <footer></footer>
+            <footer><Footer></Footer></footer>
         </div>
     );
 };
