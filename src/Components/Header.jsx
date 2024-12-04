@@ -1,9 +1,13 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 
 const Header = () => {
     const links = <>
         <li className="text-sm font-semibold"><NavLink to='/'>Home</NavLink></li>
+        <li className="text-sm font-semibold"><NavLink to='/allReviews'>All Reviews</NavLink></li>
+        <li className="text-sm font-semibold"><NavLink to='/addReview'>Add Review</NavLink></li>
+        <li className="text-sm font-semibold"><NavLink to='/myReviews'>My Reviews</NavLink></li>
+        <li className="text-sm font-semibold"><NavLink to='/watchList'>Watch List</NavLink></li>
     </>
     return (
         <div className="navbar bg-base-100">
@@ -29,7 +33,7 @@ const Header = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">daisyUI</a>
+                <a className="btn btn-ghost text-xl">Chill Gamer</a>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -37,7 +41,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <Link to='login'><button className="btn">Log-In</button></Link>
             </div>
         </div>
     );
