@@ -1,13 +1,25 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const Header = () => {
+
+    const { user, userLogout } = useContext(AuthContext)
+
+    const handleUserLogout = () => {
+        userLogout()
+        .then(() => {
+            console.log('user logout successFully')
+        })
+    }
+
     const links = <>
         <li className="text-sm font-semibold"><NavLink to='/'>Home</NavLink></li>
         <li className="text-sm font-semibold"><NavLink to='/allReviews'>All Reviews</NavLink></li>
         <li className="text-sm font-semibold"><NavLink to='/addReview'>Add Review</NavLink></li>
         <li className="text-sm font-semibold"><NavLink to='/myReviews'>My Reviews</NavLink></li>
-        <li className="text-sm font-semibold"><NavLink to='/watchList'>Watch List</NavLink></li>
+        {user? <li className="text-sm font-semibold"><NavLink to='/watchList'>Watch List</NavLink></li>:''}
     </>
     return (
         <div className="navbar bg-base-100">
@@ -41,7 +53,18 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <Link to='login'><button className="btn">Log-In</button></Link>
+                
+                {
+                    user ? <>
+                        <div className="flex items-center gap-4 mr-8">
+                            <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
+                            <h2 className="hidden md:block font-semibold">{user?.displayName}</h2>
+                        </div>
+                        <button onClick={handleUserLogout} className="btn ">Log-Out</button>
+                    </>
+                        :
+                        <Link to='/login'><button className="btn">Log-In</button></Link>
+                }
             </div>
         </div>
     );
