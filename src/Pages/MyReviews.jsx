@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 
 const MyReviews = () => {
@@ -73,7 +74,7 @@ const MyReviews = () => {
                             <td>{review.name}</td>
                             <td>{review.email}</td>
                             <td>
-                                <button className="btn">E</button>
+                                <button className="btn"><Link to={`/updateReview/${review._id}`}>edit</Link></button>
                                 <button onClick={() => handleDelete(review._id)} className="btn">x</button>
                             </td>
                         </tr>)
