@@ -1,7 +1,12 @@
+import { useContext } from "react";
 import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const AddReview = () => {
+    const { user } = useContext(AuthContext)
+    // const {email} = user;
+    console.log(user)
 
     const handleAddReviews = e => {
         e.preventDefault();
@@ -12,50 +17,51 @@ const AddReview = () => {
         const rating = form.rating.value;
         const year = form.year.value;
         const genres = form.genres.value;
-        const email = form.email.value;
-        const name = form.name.value;
+        // const email = form.email.value;
+        // const name = form.name.value;
 
-        const newAddReviews = {photo, title, description, rating, year, genres, email, name}
+        const newAddReviews = { photo, title, description, rating, year, genres, email: user?.email, name: user?.displayName, }
         console.log(newAddReviews)
 
         fetch('http://localhost:5000/reviews', {
             method: 'POST',
-            headers : {
-                'content-type' : 'application/json'
+            headers: {
+                'content-type': 'application/json'
             },
-            body : JSON.stringify(newAddReviews)
+            body: JSON.stringify(newAddReviews)
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.insertedId){
-                Swal.fire({
-                    title: 'Success!',
-                    text: 'Add Reviews successfully',
-                    icon: 'success',
-                    confirmButtonText: 'Done'
-                  })
-            }
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Add Reviews successfully',
+                        icon: 'success',
+                        confirmButtonText: 'Done'
+                    })
+                    e.target.reset();
+                }
+            })
     }
     return (
-        <div className='lg:w-3/4 mx-auto'>
+        <div className='md:w-3/4 px-4 md:p-0 mx-auto'>
             <div className="text-center p-10">
-                <h1 className="text-5xl font-bold">Add Reviews for game!</h1>
+                <h1 className="text-2xl md:text-5xl font-bold">Add Reviews for game!</h1>
             </div>
-            <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+            <div className="card bg-base-200 w-full shrink-0 ">
                 <form onSubmit={handleAddReviews} className="card-body">
                     {/* form first row */}
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Game Cover Photo</span>
+                                <span className="label-text text-lg font-semibold">Game Cover Photo</span>
                             </label>
                             <input type="text" name='photo' placeholder="Photo url" className="input input-bordered" required />
 
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Game Title</span>
+                                <span className="label-text text-lg font-semibold">Game Title</span>
                             </label>
                             <input type="text" name='title' placeholder="Game title" className="input input-bordered" required />
                         </div>
@@ -64,39 +70,45 @@ const AddReview = () => {
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Description</span>
+                                <span className="label-text text-lg font-semibold">Description</span>
                             </label>
                             <input type="text" name='description' placeholder="Description" className="input input-bordered" required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Rating</span>
+                                <span className="label-text text-lg font-semibold">Rating</span>
                             </label>
-                            <input type="text" name='rating' placeholder="Rating" className="input input-bordered" required />
+                            <input type="number" name='rating' min='1' max='5' placeholder="Rating for (e.g., 1-5)" className="input input-bordered" required />
                         </div>
                     </div>
                     {/* form third row */}
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Publishing year</span>
+                                <span className="label-text text-lg font-semibold">Publishing year</span>
                             </label>
-                            <input type="text" name='year' placeholder="Publishing year" className="input input-bordered" required />
+                            <input type="number" name='year' min='2001' max='2024' placeholder="Publishing year (e.g., 2024)" className="input input-bordered" required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Genres</span>
+                                <span className="label-text text-lg font-semibold">Genres</span>
                             </label>
-                            <input type="text" name='genres' placeholder="Genres" className="input input-bordered" required />
+                            <select name='genres' className="input input-bordered"  >
+                                <option value="">Select Genres</option>
+                                <option value="action">Action</option>
+                                <option value="rpg">RPG</option>
+                                <option value="adventure">Adventure</option>
+                            </select>
+                            {/* <input type="text" name='genres' placeholder="Genres" className="input input-bordered" required /> */}
                         </div>
                     </div>
                     {/* form 4th row */}
-                    <div className='flex flex-col lg:flex-row gap-5'>
+                    {/* <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
                                 <span className="label-text">User Email</span>
                             </label>
-                            <input type="text" name='email' placeholder="User email" className="input input-bordered" required />
+                            <input type="text" name='email' defaultValue={email} placeholder="User email" className="input input-bordered" required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
@@ -104,7 +116,7 @@ const AddReview = () => {
                             </label>
                             <input type="text" name='name' placeholder="User name" className="input input-bordered" required />
                         </div>
-                    </div>
+                    </div> */}
 
 
                     <div className="form-control mt-6">

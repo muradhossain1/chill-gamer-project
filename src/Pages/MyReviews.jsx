@@ -12,7 +12,7 @@ const MyReviews = () => {
     console.log(reviews)
 
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?email=${user?.email}`)
+        fetch(`http://localhost:5000/myReviews?email=${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setReviews(data)

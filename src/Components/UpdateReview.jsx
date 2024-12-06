@@ -100,7 +100,7 @@ const UpdateReview = () => {
                         </div>
                     </div>
                     {/* form 4th row */}
-                    <div className='flex flex-col lg:flex-row gap-5'>
+                    {/* <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
                                 <span className="label-text">User Email</span>
@@ -113,7 +113,7 @@ const UpdateReview = () => {
                             </label>
                             <input type="text" name='name' placeholder="User name" className="input input-bordered" required />
                         </div>
-                    </div>
+                    </div> */}
 
 
                     <div className="form-control mt-6">
