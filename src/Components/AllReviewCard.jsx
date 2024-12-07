@@ -1,23 +1,27 @@
 /* eslint-disable react/prop-types */
 
+import { FaStar } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 
 const AllReviewCard = ({ review }) => {
-    const { _id, photo } = review;
+    const { _id, photo, title, genres, rating } = review;
     return (
-        <div className="card bg-base-100 shadow-xl p-6">
+        <div className="card bg-base-100 shadow-xl p-4 border">
             <figure className="">
                 <img
                     src={photo}
-                    alt="Shoes"
-                    className="rounded-xl" />
+                    alt="Photo"
+                    className="rounded-xl h-36" />
             </figure>
-            <div className="card-body items-center text-center ">
-                <h2 className="card-title">Shoes!</h2>
-                <p>If a dog chews shoes whose shoes does he choose?</p>
+            <div className=" space-y-4 mt-4 ">
+                <h2 className="card-title font-bold">{title}</h2>
+                <div className="flex justify-between">
+                    <p className="font-semibold text-lg">Genres : {genres}</p>
+                    <p className="flex items-center gap-1 text-xl font-semibold"> {rating} <span className="text-yellow-500"><FaStar></FaStar></span></p>
+                </div>
                 <div className="card-actions">
-                    <button className="btn btn-primary">
+                    <button className="btn w-full btn-primary">
                         <Link to={`/reviewDetails/${_id}`}>Explore Details</Link>
                     </button>
                 </div>

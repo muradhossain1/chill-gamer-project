@@ -95,9 +95,9 @@ const AddReview = () => {
                             </label>
                             <select name='genres' className="input input-bordered"  >
                                 <option value="">Select Genres</option>
-                                <option value="action">Action</option>
-                                <option value="rpg">RPG</option>
-                                <option value="adventure">Adventure</option>
+                                <option value="Action">Action</option>
+                                <option value="RPG">RPG</option>
+                                <option value="Adventure">Adventure</option>
                             </select>
                             {/* <input type="text" name='genres' placeholder="Genres" className="input input-bordered" required /> */}
                         </div>
