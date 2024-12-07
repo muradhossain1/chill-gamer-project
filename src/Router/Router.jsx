@@ -37,7 +37,7 @@ const Router = createBrowserRouter([
                 loader: () => fetch('http://localhost:5000/reviews')
             },
             {
-                path: '/watchList',
+                path: '/watchList/:id',
                 element: <PrivateRoute><WatchList></WatchList></PrivateRoute>
             },
             {

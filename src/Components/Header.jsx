@@ -23,7 +23,7 @@ const Header = () => {
         {user? <li className="text-sm font-semibold"><NavLink to='/watchList'>Watch List</NavLink></li>:''}
     </>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-base-200 my-4 md:px-16">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -46,7 +46,7 @@ const Header = () => {
                         {links}
                     </ul>
                 </div>
-                <a className="btn btn-ghost text-xl">Chill Gamer</a>
+                <Link to='/' className="font-extrabold text-2xl">Chill Gamer</Link >
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -59,12 +59,12 @@ const Header = () => {
                     user ? <>
                         <div className="flex items-center gap-4 mr-8">
                             <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
-                            <h2 className="hidden md:block font-semibold">{user?.displayName}</h2>
+                            {/* <h2 className="hidden md:block font-semibold">{user?.displayName}</h2> */}
                         </div>
-                        <button onClick={handleUserLogout} className="btn ">Log-Out</button>
+                        <button onClick={handleUserLogout} className="btn btn-primary">Log-Out</button>
                     </>
                         :
-                        <Link to='/login'><button className="btn">Log-In</button></Link>
+                        <Link to='/login'><button className="btn btn-primary">Log-In</button></Link>
                 }
             </div>
         </div>
