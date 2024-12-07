@@ -4,7 +4,7 @@ import { Link, useLoaderData } from "react-router-dom";
 
 const ReviewDetails = () => {
     const review = useLoaderData();
-    // const { _id, photo, title, description, rating, year, genres, email, name} = review;
+    
     const { _id, photo, title, description, genres, rating, name, email } = review;
     return (
         <div className="md:w-3/4 lg:w-2/4 mx-auto ">

@@ -46,7 +46,7 @@ const AddReview = () => {
     return (
         <div className='md:w-3/4 px-4 md:p-0 mx-auto'>
             <div className="text-center p-10">
-                <h1 className="text-2xl md:text-5xl font-bold">Add Reviews for game!</h1>
+                <h1 className="text-2xl md:text-4xl font-bold">Add Reviews for game!</h1>
             </div>
             <div className="card bg-base-200 w-full shrink-0 ">
                 <form onSubmit={handleAddReviews} className="card-body">

@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 
 const UpdateReview = () => {
     const user = useLoaderData();
-    const { _id, photo, title,} = user;
+    const { _id, photo, title, description, rating, year, genres} = user;
     console.log(user)
 
     const handleUpdateReviews = e => {
@@ -47,24 +47,24 @@ const UpdateReview = () => {
 
     }
     return (
-        <div className='lg:w-3/4 mx-auto'>
-            <div className="text-center p-10">
-                <h1 className="text-5xl font-bold">Update Reviews for game!</h1>
+        <div className='lg:w-3/4 mx-auto md:px-8'>
+            <div className="text-center py-8">
+                <h1 className="text-4xl font-bold">Update Reviews for game!</h1>
             </div>
-            <div className="card bg-base-100 w-full shrink-0 shadow-2xl">
+            <div className="card bg-base-200 w-full border shrink-0 ">
                 <form onSubmit={handleUpdateReviews} className="card-body">
                     {/* form first row */}
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Game Cover Photo</span>
+                                <span className="label-text text-lg font-semibold">Game Cover Photo</span>
                             </label>
                             <input type="text" name='photo' defaultValue={photo} placeholder="Photo url" className="input input-bordered" required />
 
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Game Title</span>
+                                <span className="label-text text-lg font-semibold">Game Title</span>
                             </label>
                             <input type="text" name='title' defaultValue={title} placeholder="Game title" className="input input-bordered" required />
                         </div>
@@ -73,30 +73,30 @@ const UpdateReview = () => {
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Description</span>
+                                <span className="label-text text-lg font-semibold">Description</span>
                             </label>
-                            <input type="text" name='description' placeholder="Description" className="input input-bordered" required />
+                            <input type="text" name='description' defaultValue={description} placeholder="Description" className="input input-bordered" required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Rating</span>
+                                <span className="label-text text-lg font-semibold">Rating</span>
                             </label>
-                            <input type="text" name='rating' placeholder="Rating" className="input input-bordered" required />
+                            <input type="text" name='rating' defaultValue={rating} placeholder="Rating" className="input input-bordered" required />
                         </div>
                     </div>
                     {/* form third row */}
                     <div className='flex flex-col lg:flex-row gap-5'>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Publishing year</span>
+                                <span className="label-text text-lg font-semibold">Publishing year</span>
                             </label>
-                            <input type="text" name='year' placeholder="Publishing year" className="input input-bordered" required />
+                            <input type="text" name='year' defaultValue={year} placeholder="Publishing year" className="input input-bordered" required />
                         </div>
                         <div className="form-control flex-1">
                             <label className="label">
-                                <span className="label-text">Genres</span>
+                                <span className="label-text text-lg font-semibold">Genres</span>
                             </label>
-                            <input type="text" name='genres' placeholder="Genres" className="input input-bordered" required />
+                            <input type="text" name='genres' placeholder="Genres" className="input input-bordered" defaultValue={genres} required />
                         </div>
                     </div>
                     {/* form 4th row */}
