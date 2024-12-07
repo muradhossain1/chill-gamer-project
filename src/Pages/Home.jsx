@@ -2,6 +2,7 @@ import { useLoaderData } from "react-router-dom";
 import Banner from "../Components/Banner";
 import AllReviewCard from "../Components/AllReviewCard";
 import Benefits from "../Components/Benefits";
+import MobileRespons from "../Components/MobileRespons";
 
 
 const Home = () => {
@@ -20,6 +21,7 @@ const Home = () => {
                 </div>
             </div>
             <div>
+                <MobileRespons></MobileRespons>
                 <Benefits></Benefits>
             </div>
         </div>
