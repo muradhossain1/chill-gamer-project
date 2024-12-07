@@ -10,12 +10,14 @@ import WatchList from "../Pages/WatchList";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ReviewDetails from "../Components/ReviewDetails";
 import UpdateReview from "../Components/UpdateReview";
+import ErrorPage from "../Components/ErrorPage";
 
 
 const Router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout></MainLayout>,
+        errorElement: <ErrorPage></ErrorPage>,
         children: [
             {
                 path: '/',
