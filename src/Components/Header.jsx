@@ -10,9 +10,9 @@ const Header = () => {
 
     const handleUserLogout = () => {
         userLogout()
-        .then(() => {
-            navigate('/')
-        })
+            .then(() => {
+                navigate('/')
+            })
     }
 
     const links = <>
@@ -20,7 +20,7 @@ const Header = () => {
         <li className="text-sm font-semibold"><NavLink to='/allReviews'>All Reviews</NavLink></li>
         <li className="text-sm font-semibold"><NavLink to='/addReview'>Add Review</NavLink></li>
         <li className="text-sm font-semibold"><NavLink to='/myReviews'>My Reviews</NavLink></li>
-        {user? <li className="text-sm font-semibold"><NavLink to='/watchList'>Watch List</NavLink></li>:''}
+        {user ? <li className="text-sm font-semibold"><NavLink to='/watchList'>Watch List</NavLink></li> : ''}
     </>
     return (
         <div className="navbar bg-base-200 my-4 md:px-16">
@@ -54,12 +54,16 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                
+
                 {
                     user ? <>
-                        <div className="flex items-center gap-4 mr-8">
-                            <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
-                            {/* <h2 className="hidden md:block font-semibold">{user?.displayName}</h2> */}
+                        <div className="dropdown dropdown-hover">
+                            <div tabIndex={0} className="mr-8">
+                                <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
+                            </div>
+                            <ul tabIndex={0} className="dropdown-content menu bg-blue-100 rounded-box z-[1] w-52 p-2 shadow">
+                                <li className="text-base font-semibold"><a>{user?.displayName}</a></li>
+                            </ul>
                         </div>
                         <button onClick={handleUserLogout} className="btn btn-primary">Log-Out</button>
                     </>

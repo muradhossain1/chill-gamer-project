@@ -43,7 +43,7 @@ const Register = () => {
             })
     }
     return (
-        <div className="hero bg-base-200 md:w-2/3 mx-auto rounded-xl min-h-screen">
+        <div className="hero bg-base-200 md:w-2/3 mt-12 mx-auto rounded-xl min-h-screen">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Register!</h1>
@@ -52,25 +52,25 @@ const Register = () => {
                     <form onSubmit={handleRegister} className="card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Name</span>
+                                <span className="label-text text-base font-semibold">Name</span>
                             </label>
                             <input type="text" name="name" placeholder="Name" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text text-base font-semibold">Email</span>
                             </label>
                             <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Photo URL</span>
+                                <span className="label-text text-base font-semibold">Photo URL</span>
                             </label>
                             <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text text-base font-semibold">Password</span>
                             </label>
                             <input type="password" name="password" placeholder="password" className="input input-bordered" required />
                         </div>

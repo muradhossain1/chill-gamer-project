@@ -45,7 +45,7 @@ const Login = () => {
         })
     }
     return (
-        <div className="hero bg-base-200 md:w-2/3 mx-auto rounded-xl min-h-screen">
+        <div className="hero bg-base-200 md:w-2/3 mx-auto mt-12 rounded-xl min-h-screen">
             <div className="hero-content flex-col">
                 <div className="text-center lg:text-left">
                     <h1 className="text-5xl font-bold">Login now!</h1>
@@ -54,17 +54,17 @@ const Login = () => {
                     <form onSubmit={handleLogin} className="card-body">
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Email</span>
+                                <span className="label-text text-base font-semibold">Email</span>
                             </label>
                             <input type="email" name="email" placeholder="email" className="input input-bordered" required />
                         </div>
                         <div className="form-control">
                             <label className="label">
-                                <span className="label-text">Password</span>
+                                <span className="label-text text-base font-semibold">Password</span>
                             </label>
                             <input type="password" name="password" placeholder="password" className="input input-bordered" required />
-                            <label className="label">
-                                <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                            <label className="label ">
+                                <a href="#" className="label-text-alt link link-hover text-base font-semibold">Forgot password?</a>
                             </label>
                         </div>
                         <div className="form-control mt-2">

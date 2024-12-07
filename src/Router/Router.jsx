@@ -20,7 +20,7 @@ const Router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/reviews')
+                loader: () => fetch('http://localhost:5000/highest-rating-reviews')
             },
             {
                 path: '/allReviews',
