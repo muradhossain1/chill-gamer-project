@@ -8,7 +8,7 @@ const WatchList = () => {
     const [watchList, setWatchList] = useState();
 
     useEffect(() => {
-        fetch(`http://localhost:5000/myWatchList?email=${user?.email}`)
+        fetch(`https://assignment-10-server-lake-xi.vercel.app/myWatchList?email=${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setWatchList(data)

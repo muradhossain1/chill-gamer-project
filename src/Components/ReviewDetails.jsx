@@ -8,13 +8,12 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 const ReviewDetails = () => {
     const { user } = useContext(AuthContext)
     const review = useLoaderData();
-    console.log(user)
-    const { photo, title, description, genres, rating, year, email, name} = review;
+    const { photo, title, description, genres, rating, year, email, name } = review;
 
     const addWatchlist = { photo, title, description, genres, rating, year, name: user?.displayName, email: user?.email }
 
     const handleAddWatchList = () => {
-        fetch('http://localhost:5000/watchList', {
+        fetch('https://assignment-10-server-lake-xi.vercel.app/watchList', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
