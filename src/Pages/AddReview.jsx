@@ -5,8 +5,6 @@ import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const AddReview = () => {
     const { user } = useContext(AuthContext)
-    // const {email} = user;
-    console.log(user)
 
     const handleAddReviews = e => {
         e.preventDefault();
@@ -21,9 +19,8 @@ const AddReview = () => {
         // const name = form.name.value;
 
         const newAddReviews = { photo, title, description, rating, year, genres, email: user?.email, name: user?.displayName, }
-        console.log(newAddReviews)
 
-        fetch('http://localhost:5000/reviews', {
+        fetch('https://assignment-10-server-lake-xi.vercel.app/reviews', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

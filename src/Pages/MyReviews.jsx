@@ -10,11 +10,8 @@ const MyReviews = () => {
     const {user} = useContext(AuthContext)
     const [reviews, setReviews] = useState();
 
-    // console.log(user)
-    console.log(reviews)
-
     useEffect(() => {
-        fetch(`http://localhost:5000/myReviews?email=${user?.email}`)
+        fetch(`https://assignment-10-server-lake-xi.vercel.app/myReviews?email=${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setReviews(data)
@@ -33,12 +30,11 @@ const MyReviews = () => {
         }).then((result) => {
             if (result.isConfirmed) {
 
-                fetch(`http://localhost:5000/reviews/${_id}`, {
+                fetch(`https://assignment-10-server-lake-xi.vercel.app/reviews/${_id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(data => {
-                        // console.log(data);
                         if (data.deletedCount) {
                             Swal.fire({
                                 title: "Deleted!",

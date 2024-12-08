@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 const UpdateReview = () => {
     const user = useLoaderData();
     const { _id, photo, title, description, rating, year, genres} = user;
-    console.log(user)
 
     const handleUpdateReviews = e => {
         e.preventDefault();
@@ -20,10 +19,9 @@ const UpdateReview = () => {
         // const name = form.name.value;
 
         const updateReviews = { photo, title, description, rating, year, genres, }
-        console.log(updateReviews)
 
         // send data to the server and database
-        fetch(`http://localhost:5000/reviews/${_id}`, {
+        fetch(`https://assignment-10-server-lake-xi.vercel.app/reviews/${_id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'
@@ -32,9 +30,7 @@ const UpdateReview = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
                 if (data.modifiedCount) {
-                    console.log('successfully updated');
                     Swal.fire({
                         title: 'Success!',
                         text: 'Reviews updated successfully',

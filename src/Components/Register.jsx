@@ -26,7 +26,6 @@ const Register = () => {
         if(!/[A-Z]/.test(password)){
             return setError('Password must contain at least one uppercase letter')
         }
-        console.log(name, email, photo, password)
 
         createUser(email, password)
             .then(() => {
