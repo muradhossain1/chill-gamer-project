@@ -15,8 +15,6 @@ const AddReview = () => {
         const rating = form.rating.value;
         const year = form.year.value;
         const genres = form.genres.value;
-        // const email = form.email.value;
-        // const name = form.name.value;
 
         const newAddReviews = { photo, title, description, rating, year, genres, email: user?.email, name: user?.displayName, }
 
@@ -99,23 +97,6 @@ const AddReview = () => {
                             {/* <input type="text" name='genres' placeholder="Genres" className="input input-bordered" required /> */}
                         </div>
                     </div>
-                    {/* form 4th row */}
-                    {/* <div className='flex flex-col lg:flex-row gap-5'>
-                        <div className="form-control flex-1">
-                            <label className="label">
-                                <span className="label-text">User Email</span>
-                            </label>
-                            <input type="text" name='email' defaultValue={email} placeholder="User email" className="input input-bordered" required />
-                        </div>
-                        <div className="form-control flex-1">
-                            <label className="label">
-                                <span className="label-text">User Name</span>
-                            </label>
-                            <input type="text" name='name' placeholder="User name" className="input input-bordered" required />
-                        </div>
-                    </div> */}
-
-
                     <div className="form-control mt-6">
                         <button className="btn btn-primary">Add Reviews</button>
                     </div>

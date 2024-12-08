@@ -1,11 +1,39 @@
+import { useContext } from "react";
 import { FaStar } from "react-icons/fa";
-import { Link, useLoaderData } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import Swal from "sweetalert2";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const ReviewDetails = () => {
+    const { user } = useContext(AuthContext)
     const review = useLoaderData();
-    
-    const { _id, photo, title, description, genres, rating, name, email } = review;
+    console.log(user)
+    const { photo, title, description, genres, rating, email, name} = review;
+
+    const addWatchlist = { photo, title, description, genres, rating, name: user?.displayName, email: user?.email }
+
+    const handleAddWatchList = () => {
+        fetch('http://localhost:5000/watchList', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(addWatchlist)
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    Swal.fire({
+                        title: 'Success!',
+                        text: 'Reviews added watchlist successfully',
+                        icon: 'success',
+                        confirmButtonText: 'ok'
+                    })
+                }
+
+            })
+    }
     return (
         <div className="md:w-3/4 lg:w-2/4 mx-auto ">
             <h2 className="text-2xl md:text-4xl text-center font-bold py-8">Review Details of Cill Gamer</h2>
@@ -31,8 +59,8 @@ const ReviewDetails = () => {
                         <h2 className="font-bold text-lg mt-1">Reviewer’s  Email : <span className="font-serif text-gray-600">{email}</span></h2>
                     </div>
                     <div className="card-actions">
-                        <button className="btn btn-primary w-full">
-                            <Link to={`/watchList/${_id}`}>Add to WatchList</Link>
+                        <button onClick={handleAddWatchList} className="btn btn-primary w-full">
+                            Add to WatchList
                         </button>
                     </div>
                 </div>

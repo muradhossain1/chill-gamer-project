@@ -2,11 +2,13 @@ import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const Register = () => {
     const { createUser, updateProfileUser } = useContext(AuthContext)
-    const [error, setError] = useState('')
+    const [error, setError] = useState('');
+    const [showPassword, setShowPassword] = useState(false)
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -67,11 +69,16 @@ const Register = () => {
                             </label>
                             <input type="text" name="photo" placeholder="Photo URL" className="input input-bordered" required />
                         </div>
-                        <div className="form-control">
+                        <div className="form-control relative">
                             <label className="label">
                                 <span className="label-text text-base font-semibold">Password</span>
                             </label>
-                            <input type="password" name="password" placeholder="password" className="input input-bordered" required />
+                            <input type={showPassword ? 'text':'password'} name="password" placeholder="password" className="input input-bordered" required />
+                            <button onClick={() => setShowPassword(!showPassword)} className="absolute top-[56px] right-4">
+                                {
+                                    showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                                }
+                            </button>
                         </div>
                         <div className="form-control mt-2">
                             <button className="btn btn-primary">Resgister</button>

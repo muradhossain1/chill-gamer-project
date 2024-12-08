@@ -36,10 +36,9 @@ const Router = createBrowserRouter([
             {
                 path: '/myReviews',
                 element: <PrivateRoute><MyReviews></MyReviews></PrivateRoute>,
-                loader: () => fetch('https://assignment-10-server-lake-xi.vercel.app/reviews')
             },
             {
-                path: '/watchList/:id',
+                path: '/watchList',
                 element: <PrivateRoute><WatchList></WatchList></PrivateRoute>
             },
             {
