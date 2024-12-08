@@ -20,7 +20,7 @@ const Header = () => {
         <li className="text-sm font-semibold"><NavLink to='/allReviews'>All Reviews</NavLink></li>
         <li className="text-sm font-semibold"><NavLink to='/addReview'>Add Review</NavLink></li>
         <li className="text-sm font-semibold"><NavLink to='/myReviews'>My Reviews</NavLink></li>
-        {user ? <li className="text-sm font-semibold"><NavLink to='/watchList'>Watch List</NavLink></li> : ''}
+        {user ? <li className="text-sm font-semibold"><NavLink to='/watchList'>Watch-List</NavLink></li> : ''}
     </>
     return (
         <div className={`bg-${theme === "light" ? "white" : "black"}`}>

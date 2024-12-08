@@ -27,6 +27,7 @@ const WatchList = () => {
                         <th>Game title</th>
                         <th>Name</th>
                         <th>Genres</th>
+                        <th>Publishing year</th>
                         <th>Rating</th>
                     </tr>
                 </thead>
@@ -39,6 +40,7 @@ const WatchList = () => {
                             <td>{watch.title}</td>
                             <td>{watch.name}</td>
                             <td>{watch.genres}</td>
+                            <td>{watch.year}</td>
                             <td className="flex items-center gap-1">{watch.rating} <span className="text-base text-yellow-500"><FaStar></FaStar></span></td>
                         </tr>)
                     }
