@@ -3,6 +3,7 @@ import Banner from "../Components/Banner";
 import AllReviewCard from "../Components/AllReviewCard";
 import Benefits from "../Components/Benefits";
 import MobileRespons from "../Components/MobileRespons";
+import NewsLatter from "../Components/NewsLatter";
 
 
 const Home = () => {
@@ -23,6 +24,7 @@ const Home = () => {
             <div>
                 <MobileRespons></MobileRespons>
                 <Benefits></Benefits>
+                <NewsLatter></NewsLatter>
             </div>
         </div>
     );

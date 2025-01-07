@@ -29,7 +29,7 @@ const Contact = () => {
             );
     };
     return (
-        <div id='contact' className=" rounded-lg lg:mx-28 pt-20" >
+        <div id='contact' className=" rounded-lg md:mx-12 lg:mx-28 pt-20" >
             <h2 className="text-4xl font-bold text-center pt-4 drop-shadow-xl">Contact Information</h2>
             <div className="max-w-6xl mx-auto  bg-base-200 p-6 rounded-lg shadow-lg flex flex-col md:flex-row gap-8 mt-8">
                 <div className="md:w-1/2">

@@ -4,7 +4,7 @@ import { FaCheckCircle } from "react-icons/fa";
 const Benefits = () => {
     return (
         <div className="md:px-12 lg:px-28">
-            <h2 className="text-3xl md:text-4xl text-center font-bold mt-8">Chill gamer benefits Section</h2>
+            <h2 className="text-3xl md:text-4xl text-center font-bold mt-8">Chill gamer benefits</h2>
             <div className="border p-6  mx-auto rounded-xl my-10 bg-gray-200 ">
                 <h2 className="text-3xl font-bold "> Get lifetime Benefits :</h2>
                 <div className="grid md:grid-cols-2 gap-6 mt-8">
