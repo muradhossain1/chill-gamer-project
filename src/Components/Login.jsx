@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { FaGoogle } from "react-icons/fa";
 import { toast } from "react-toastify";
+import loginLottie from "../assets/loginLottie.json"
+import Lottie from "lottie-react";
 
 
 const Login = () => {
@@ -17,40 +19,41 @@ const Login = () => {
         const password = e.target.password.value;
 
         loginUser(email, password)
-        .then(() => {
-            toast.success('Successful your account Login', {
-                position: "top-center",
+            .then(() => {
+                toast.success('Successful your account Login', {
+                    position: "top-center",
+                })
+                navigate(location?.state ? location.state : '/')
             })
-            navigate(location?.state ? location.state : '/')
-        })
-        .catch(error => {
-            setError(error.message)
-            toast.error("Authentication did't match", {
-                position: "top-center"
+            .catch(error => {
+                setError(error.message)
+                toast.error("Authentication did't match", {
+                    position: "top-center"
+                })
             })
-        })
     };
 
     const handleLoginGoogle = () => {
         LoginWithGoogle()
-        .then(() => {
-            toast.success('Successful your google account Login',{
-                position: "top-center",
+            .then(() => {
+                toast.success('Successful your google account Login', {
+                    position: "top-center",
+                })
+                navigate(location?.state ? location.state : '/')
             })
-            navigate(location?.state ? location.state : '/')
-        })
-        .catch(err => {
-            setError(err.message)
-        })
+            .catch(err => {
+                setError(err.message)
+            })
     }
     return (
-        <div className="hero bg-base-200 md:w-2/3 mx-auto mt-12 rounded-xl min-h-screen">
-            <div className="hero-content flex-col">
+        <div className="hero mt-[4.2rem] md:px-12 lg:px-28  min-h-screen">
+            <div className="hero-content flex-col md:flex-row">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Login now!</h1>
+                    <Lottie animationData={loginLottie}></Lottie>
                 </div>
                 <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mt-4">
                     <form onSubmit={handleLogin} className="card-body">
+                        <h1 className="text-3xl font-bold">Login now!</h1>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-base font-semibold">Email</span>

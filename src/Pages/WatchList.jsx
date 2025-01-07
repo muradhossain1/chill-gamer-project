@@ -16,7 +16,7 @@ const WatchList = () => {
     }, [user?.email])
 
     return (
-        <div className="overflow-x-auto md:px-28">
+        <div className="overflow-x-auto md:px-12 lg:px-28 mt-[4.2rem]">
             <h2 className="text-2xl md:text-4xl text-center font-bold py-8">My Watch-list of Cill Gamer</h2>
             <table className="table">
                 {/* head */}

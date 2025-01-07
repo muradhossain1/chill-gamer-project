@@ -2,7 +2,7 @@
 
 const MobileRespons = () => {
     return (
-        <div className="md:px-12 lg:px-32">
+        <div className="md:px-12 lg:px-28">
             <div className="hero bg-base-200 mt-12 p-8 rounded-xl">
                 <div className="flex flex-col lg:flex-row gap-6">
                     <img

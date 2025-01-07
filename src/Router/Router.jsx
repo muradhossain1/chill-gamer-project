@@ -11,6 +11,8 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import ReviewDetails from "../Components/ReviewDetails";
 import UpdateReview from "../Components/UpdateReview";
 import ErrorPage from "../Components/ErrorPage";
+import About from "../Pages/About";
+import Contact from "../Pages/Contact";
 
 
 const Router = createBrowserRouter([
@@ -50,6 +52,14 @@ const Router = createBrowserRouter([
                 path : 'updateReview/:id',
                 element : <UpdateReview></UpdateReview>,
                 loader: ({ params }) => fetch(`https://assignment-10-server-lake-xi.vercel.app/reviews/${params.id}`)
+            },
+            {
+                path: '/about',
+                element: <About></About>
+            },
+            {
+                path: '/contact',
+                element: <Contact></Contact>
             },
             {
                 path: '/login',

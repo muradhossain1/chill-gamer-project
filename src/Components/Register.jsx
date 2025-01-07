@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 import { toast } from "react-toastify";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
+import registerLottie from "../assets/registerLottie.json"
+import Lottie from "lottie-react";
 
 
 const Register = () => {
@@ -22,16 +24,16 @@ const Register = () => {
         if (password.length < 6) {
             return setError('Password must contain at least 6 character')
         }
-        if(!/[a-z]/.test(password)){
+        if (!/[a-z]/.test(password)) {
             return setError('Password must contain at least one lowercase letter')
         }
-        if(!/[A-Z]/.test(password)){
+        if (!/[A-Z]/.test(password)) {
             return setError('Password must contain at least one uppercase letter')
         }
 
         createUser(email, password)
             .then(() => {
-                toast.success('Successful your google account Register',{
+                toast.success('Successful your google account Register', {
                     position: "top-center",
                 })
 
@@ -44,13 +46,14 @@ const Register = () => {
             })
     }
     return (
-        <div className="hero bg-base-200 md:w-2/3 mt-12 mx-auto rounded-xl min-h-screen">
-            <div className="hero-content flex-col">
+        <div className="hero mt-[4.2rem] md:px-12 lg:px-28 min-h-screen">
+            <div className="hero-content flex-col md:flex-row">
                 <div className="text-center lg:text-left">
-                    <h1 className="text-5xl font-bold">Register!</h1>
+                    <Lottie animationData={registerLottie}></Lottie>
                 </div>
-                <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl mt-4">
+                <div className="card bg-base-100 border w-full max-w-sm shrink-0 shadow-2xl ">
                     <form onSubmit={handleRegister} className="card-body">
+                        <h1 className="text-3xl font-bold">Register!</h1>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text text-base font-semibold">Name</span>
@@ -73,7 +76,7 @@ const Register = () => {
                             <label className="label">
                                 <span className="label-text text-base font-semibold">Password</span>
                             </label>
-                            <input type={showPassword ? 'text':'password'} name="password" placeholder="password" className="input input-bordered" required />
+                            <input type={showPassword ? 'text' : 'password'} name="password" placeholder="password" className="input input-bordered" required />
                             <button onClick={() => setShowPassword(!showPassword)} className="absolute top-[56px] right-4">
                                 {
                                     showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>

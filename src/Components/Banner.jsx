@@ -1,51 +1,83 @@
-
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import 'swiper/css'
+import 'swiper/css/pagination'
+import 'swiper/css/navigation'
 
 const Banner = () => {
     return (
-        <div className="border p-6 md:w-2/3 mx-auto rounded-xl my-10">
-            <div className="carousel w-full">
-                <div id="slide1" className="carousel-item relative w-full">
-                    <img
-                        src="https://i.ibb.co.com/gvQL6n9/witcher.jpg"
-                        className="w-full rounded-lg relative" />
-                    <div className="absolute hidden lg:block top-80 left-44 py-6 px-10 text-center bg-gradient-to-r from-blue-600 to-pink-500 rounded-xl text-white ">
-                        <h2 className="text-xl font-bold mb-2">Explore the Best RPG Games</h2>
-                        <p className="text-base font-serif text-gray-200">Delve into immersive worlds, epic quests, and unforgettable <br /> stories.</p>
+        <div className="carousel w-full md:px-12 lg:px-28 mt-[4.3rem]">
+            <Swiper
+                spaceBetween={30}
+                centeredSlides={true}
+                loop={true}
+                autoplay={{
+                    delay: 4000,
+                    disableOnInteraction: false,
+                }}
+                pagination={{
+                    clickable: true,
+                }}
+                navigation={true}
+                modules={[Autoplay, Pagination, Navigation]}
+                className='mySwiper rounded-lg'
+            >
+                <SwiperSlide id="slide1" className="carousel-item relative w-full">
+                    <div
+                        className='w-full bg-center bg-cover h-[28rem]'
+                        style={{
+                            backgroundImage: `url('https://i.ibb.co.com/gvQL6n9/witcher.jpg')`,
+                        }}
+                    >
+                        <div className='flex items-center justify-center w-full h-full bg-gray-700/60 '>
+                            <div className=''>
+                                <h1 className='text-xl font-semibold text-gray-200 lg:text-4xl'>
+                                    Explore the RPG Games
+                                </h1>
+                                <p className="text-gray-300 mt-2">Delve into immersive worlds, epic quests, and unforgettable stories.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide4" className="btn btn-circle">❮</a>
-                        <a href="#slide2" className="btn btn-circle">❯</a>
+                </SwiperSlide>
+                <SwiperSlide id="slide1" className="carousel-item relative w-full">
+                    <div
+                        className='w-full bg-center bg-cover h-[28rem]'
+                        style={{
+                            backgroundImage: `url('https://i.ibb.co.com/Yy14mDF/red-dead-redemption-2.jpg')`,
+                        }}
+                    >
+                        <div className='flex items-center justify-center w-full h-full bg-gray-700/60 '>
+                            <div className=''>
+                                <h1 className='text-xl font-semibold text-gray-200 lg:text-4xl'>
+                                    Join the Gaming Community
+                                </h1>
+                                <p className="text-gray-300 mt-2">Share your thoughts, read reviews, and discover new favorites with Chill Gamer!</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div id="slide2" className="carousel-item relative w-full">
-                    <img
-                        src="https://i.ibb.co.com/Yy14mDF/red-dead-redemption-2.jpg"
-                        className="w-full rounded-lg" />
-                     <div className="absolute hidden lg:block top-80 right-6 py-6 px-10 text-center bg-gradient-to-r from-blue-600 to-pink-500 rounded-xl text-white ">
-                        <h2 className="text-xl font-bold mb-2">Join the Gaming Community</h2>
-                        <p className="text-base font-serif text-gray-200">Share your thoughts, read reviews, and discover new favorites with <br /> Chill Gamer!</p>
+                </SwiperSlide>
+                <SwiperSlide id="slide1" className="carousel-item relative w-full">
+                    <div
+                        className='w-full bg-center bg-cover h-[28rem]'
+                        style={{
+                            backgroundImage: `url('https://i.ibb.co.com/7VZ3gFD/ghost-of-tsushima.jpg')`,
+                        }}
+                    >
+                        <div className='flex items-center justify-center w-full h-full bg-gray-700/60 '>
+                            <div className=''>
+                                <h1 className='text-xl font-semibold text-gray-200 lg:text-4xl'>
+                                Find Your Next Adventure
+                                </h1>
+                                <p className="text-gray-300 mt-2">With thousands of games to explore, your next adventure awaits!</p>
+                            </div>
+                        </div>
                     </div>
-                    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide1" className="btn btn-circle">❮</a>
-                        <a href="#slide3" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
-                <div id="slide3" className="carousel-item relative w-full">
-                    <img
-                        src="https://i.ibb.co.com/7VZ3gFD/ghost-of-tsushima.jpg"
-                        className="w-full rounded-lg" />
-                      <div className="absolute hidden lg:block top-80 left-6 py-6 px-10 text-center bg-gradient-to-r from-blue-600 to-pink-500 rounded-xl text-white ">
-                        <h2 className="text-xl font-bold mb-2">Find Your Next Adventure</h2>
-                        <p className="text-base font-serif text-gray-200">With thousands of games to explore, your next adventure <br /> awaits!</p>
-                    </div>
-                    <div className="absolute left-5 right-5 top-1/2 flex -translate-y-1/2 transform justify-between">
-                        <a href="#slide2" className="btn btn-circle">❮</a>
-                        <a href="#slide1" className="btn btn-circle">❯</a>
-                    </div>
-                </div>
-            </div>
+                </SwiperSlide>
+            </Swiper>
+
         </div>
     );
 };
 
 export default Banner;
+

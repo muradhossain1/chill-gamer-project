@@ -18,19 +18,21 @@ const Header = () => {
     const links = <>
         <li className="text-sm font-semibold"><NavLink to='/'>Home</NavLink></li>
         <li className="text-sm font-semibold"><NavLink to='/allReviews'>All Reviews</NavLink></li>
-        <li className="text-sm font-semibold"><NavLink to='/addReview'>Add Review</NavLink></li>
-        <li className="text-sm font-semibold"><NavLink to='/myReviews'>My Reviews</NavLink></li>
+        <li className="text-sm font-semibold"><NavLink to='/about'>About Us</NavLink></li>
+        <li className="text-sm font-semibold"><NavLink to='/contact'>Contact</NavLink></li>
+        {user? <li className="text-sm font-semibold"><NavLink to='/addReview'>Add Review</NavLink></li> : ''}
+        { user ? <li className="text-sm font-semibold"><NavLink to='/myReviews'>My Reviews</NavLink></li> : ''}
         {user ? <li className="text-sm font-semibold"><NavLink to='/watchList'>Watch-List</NavLink></li> : ''}
     </>
     return (
         <div className={`bg-${theme === "light" ? "white" : "black"}`}>
-            <div className="navbar bg-base-200 my-4 md:px-16">
+            <div className="navbar bg-base-200 top-0 md:px-12 lg:px-28 fixed z-10">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
-                                className="h-5 w-5"
+                                className="h-8 w-8"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 stroke="currentColor">
@@ -55,12 +57,12 @@ const Header = () => {
                     </ul>
                 </div>
                 <div className="navbar-end">
-                    <input onClick={toggleTheme} type="checkbox" className="toggle mr-8" defaultChecked />
+                    <input onClick={toggleTheme} type="checkbox" className="toggle mr-4" defaultChecked />
 
                     {
                         user ? <>
                             <div className="dropdown dropdown-hover">
-                                <div tabIndex={0} className="mr-8">
+                                <div tabIndex={0} className="mr-4">
                                     <img className="w-12 h-12 rounded-full" src={user?.photoURL} alt="" />
                                 </div>
                                 <ul tabIndex={0} className="dropdown-content menu bg-blue-100 rounded-box z-[1] w-52 p-2 shadow">

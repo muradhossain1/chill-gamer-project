@@ -13,8 +13,8 @@ const Home = () => {
             <div><Banner></Banner></div>
 
             <div>
-                <h2 className="text-2xl md:text-4xl text-center font-bold ">Highest Rated Game Section</h2>
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 md:px-12 lg:px-32 mt-8 gap-6">
+                <h2 className="text-2xl md:text-4xl text-center font-bold mt-8 ">Highest Rated Game Section</h2>
+                <div className="grid md:grid-cols-2 lg:grid-cols-4 md:px-12 lg:px-28 mt-8 gap-6">
                     {
                         reviews.map(review => <AllReviewCard key={review._id} review={review}></AllReviewCard>)
                     }
