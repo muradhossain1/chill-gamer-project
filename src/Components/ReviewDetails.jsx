@@ -1,18 +1,22 @@
 import { useContext } from "react";
 import { FaStar } from "react-icons/fa";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
 
 
 const ReviewDetails = () => {
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate();
     const review = useLoaderData();
     const { photo, title, description, genres, rating, year, email, name } = review;
 
     const addWatchlist = { photo, title, description, genres, rating, year, name: user?.displayName, email: user?.email }
 
     const handleAddWatchList = () => {
+        if(!user) {
+            return navigate('/login')
+        }
         fetch('https://assignment-10-server-lake-xi.vercel.app/watchList', {
             method: 'POST',
             headers: {
@@ -29,6 +33,7 @@ const ReviewDetails = () => {
                         icon: 'success',
                         confirmButtonText: 'ok'
                     })
+                    navigate('/watchList')
                 }
 
             })

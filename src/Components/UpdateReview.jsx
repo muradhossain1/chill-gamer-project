@@ -1,9 +1,11 @@
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 
 const UpdateReview = () => {
     const user = useLoaderData();
+    const navigate = useNavigate();
+
     const { _id, photo, title, description, rating, year, genres} = user;
 
     const handleUpdateReviews = e => {
@@ -37,12 +39,13 @@ const UpdateReview = () => {
                         confirmButtonText: 'Ok'
                     });
                     e.target.reset();
+                    navigate('/myReviews')
                 }
             })
 
     }
     return (
-        <div className='lg:w-3/4 mx-auto md:px-8'>
+        <div className='lg:px-28 mt-[4.2rem] mx-auto md:px-12 '>
             <div className="text-center py-8">
                 <h1 className="text-4xl font-bold">Update Reviews for game!</h1>
             </div>

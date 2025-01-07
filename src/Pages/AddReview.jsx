@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import Swal from "sweetalert2";
 import { AuthContext } from "../AuthProvider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 
 const AddReview = () => {
     const { user } = useContext(AuthContext)
+    const navigate = useNavigate();
 
     const handleAddReviews = e => {
         e.preventDefault();
@@ -35,6 +37,7 @@ const AddReview = () => {
                         confirmButtonText: 'Done'
                     })
                     e.target.reset();
+                    navigate('/myReviews')
                 }
             })
     }
